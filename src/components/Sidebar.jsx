@@ -1,7 +1,7 @@
 import { Navbar } from "react-bootstrap";
 import { Nav } from "react-bootstrap";
 
-function Sidebar() {
+export default function Sidebar() {
   return (
     <Navbar sticky="top" className="flex-column Sidebar">
       <Nav.Item>
@@ -13,5 +13,3 @@ function Sidebar() {
     </Navbar>
   );
 }
-
-export default Sidebar

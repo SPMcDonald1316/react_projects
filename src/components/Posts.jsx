@@ -1,4 +1,4 @@
-function Posts() {
+export default function Posts() {
   const posts = [
     {
       id: 1,
@@ -36,5 +36,3 @@ function Posts() {
     </>
   );
 }
-
-export default Posts
