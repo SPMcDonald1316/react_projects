@@ -1,3 +1,6 @@
+import Container from 'react-bootstrap/Container';
+import Header from './components/Header';
+
 function App() {
   const posts = [
     {
@@ -19,21 +22,23 @@ function App() {
   ];
 
   return (
-    <>
-      <h1>Microblog</h1>
-      {posts.length === 0 ?
-        <p>There are no blog posts.</p>
-      :
-        posts.map(post => {
-          return (
-            <p key={post.id}>
-              <b>{post.author.username}</b> &mdash; {post.timestamp}
-              <br />
-            </p>
-          );
-        })
-      }
-    </>
+    <Container fluid className='App'>
+      <Header />
+      <Container>
+        {posts.length === 0 ?
+          <p>There are no blog posts.</p>
+        :
+          posts.map(post => {
+            return (
+              <p key={post.id}>
+                <b>{post.author.username}</b> &mdash; {post.timestamp}
+                <br />
+              </p>
+            );
+          })
+        }
+      </Container>
+    </Container>
   );
 }
 
