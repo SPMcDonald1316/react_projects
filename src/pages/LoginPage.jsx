@@ -1,6 +1,6 @@
 import Body from "../components/Body";
 
-export default function LoginPage() {
+function LoginPage() {
   return (
     <Body>
       <h1>Login form</h1>
@@ -8,3 +8,5 @@ export default function LoginPage() {
     </Body>
   );
 }
+
+export default LoginPage;

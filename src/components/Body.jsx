@@ -1,7 +1,7 @@
 import { Container, Stack } from "react-bootstrap";
 import Sidebar from "./Sidebar";
 
-export default function Body({sidebar, children}) {
+function Body({sidebar, children}) {
   return (
     <Container>
       <Stack direction="horizontal" className="Body">
@@ -13,3 +13,5 @@ export default function Body({sidebar, children}) {
     </Container>
   );
 }
+
+export default Body;

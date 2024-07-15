@@ -1,7 +1,7 @@
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 
-export default function Header() {
+function Header() {
   return (
     <Navbar bg='light' sticky='top' className='Header'>
       <Container>
@@ -11,3 +11,4 @@ export default function Header() {
   );
 }
 
+export default Header;

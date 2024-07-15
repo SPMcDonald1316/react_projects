@@ -1,6 +1,6 @@
 import Body from "../components/Body";
 
-export default function ExplorePage() {
+function ExplorePage() {
   return (
     <Body sidebar>
       <h1>Explore</h1>
@@ -9,3 +9,4 @@ export default function ExplorePage() {
   );
 }
 
+export default ExplorePage;
