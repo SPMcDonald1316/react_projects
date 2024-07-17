@@ -1,11 +1,14 @@
+/* MAIN APP */
 .App {
   padding: 0;
 }
 
+/* HEADER COMPONENT */
 .Header {
   border-bottom: 1px solid #ddd;
 }
 
+/* SIDEBAR COMPONENT */
 .Sidebar {
   width: 120px;
   margin: 5px;
@@ -29,4 +32,8 @@
 
 .Sidebar a:visited {
   color: #444;
+}
+
+.Sidebar .nav-item .active {
+  background-color: #def;
 }
