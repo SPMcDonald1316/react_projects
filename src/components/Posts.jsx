@@ -7,7 +7,7 @@ function Posts() {
 
   useEffect(() => {
     (async () => {
-      const repsonse = await fetch(/*BASE_APP_URL*/ + '/api/feed');
+      const repsonse = await fetch('http://localhost:4000/api/feed');
       if (repsonse.ok) {
         const results = await repsonse.json();
         setPosts(results.data);

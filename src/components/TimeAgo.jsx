@@ -12,7 +12,23 @@ const secondsTable = [
 const rtf = new Intl.RelativeTimeFormat(undefined, {numeric: 'auto'});
 
 function getTimeAgo(date) {
-  // TODO
+  const seconds = Math.round((date.getTime() - new Date().getTime()) / 1000);
+  const absSeconds = Math.abs(seconds);
+  let bestUnit, bestTime, bestInterval;
+  for (let [unit, unitSeconds] of secondsTable) {
+    if (absSeconds >= unitSeconds) {
+      bestUnit = unit;
+      bestTime = Math.round(seconds / unitSeconds);
+      bestInterval = Math.min(unitSeconds / 2, 60 * 60 * 24);
+      break;
+    }
+  }
+  if (!bestUnit) {
+    bestUnit = 'second';
+    bestTime = parseInt(seconds / 10) * 10;
+    bestInterval = 10;
+  }
+  return [bestTime, bestUnit, bestInterval]
 }
 
 export default function TimeAgo({ isoDate }) {
