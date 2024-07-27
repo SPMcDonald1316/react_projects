@@ -1,25 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
+import Post from "./Post";
 
 function Posts() {
   const [posts, setPosts] = useState();
 
-  // TODO: add a side effect function to request posts
+  useEffect(() => {
+    (async () => {
+      const repsonse = await fetch(/*BASE_APP_URL*/ + '/api/feed');
+      if (repsonse.ok) {
+        const results = await repsonse.json();
+        setPosts(results.data);
+      } else {
+        setPosts(null);
+      }
+    })();
+  }, []);
 
   return (
     <>
-      {posts === undefined ?
-        <Spinner animation='border' />
+      {posts === undefined ? 
+        <Spinner animation="border" />
       :
-        posts.map(post => {
-          return (
-            <p key={post.id}>
-              <b>{post.author.username}</b> &mdash; {post.timestamp}
-              <br />
-              {post.text}
-            </p>
-          );
-        })
+        <>
+          {posts === null ?
+            <p>Could not retrieve blog posts.</p>
+          :
+            <>
+              {posts.length === 0 ?
+                <p>There are no blog posts.</p>
+              :
+                posts.map(post => <Post key={post.id} post={post} />)
+              }
+            </>
+          }
+        </>
       }
     </>
   );
