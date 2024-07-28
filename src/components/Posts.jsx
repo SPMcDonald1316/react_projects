@@ -1,21 +1,22 @@
 import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
+import { useApi } from '../contexts/ApiProvider';
 import Post from "./Post";
 
 function Posts() {
   const [posts, setPosts] = useState();
+  const api = useApi();
 
   useEffect(() => {
     (async () => {
-      const repsonse = await fetch('http://localhost:4000/api/feed');
-      if (repsonse.ok) {
-        const results = await repsonse.json();
-        setPosts(results.data);
+      const response = await api.get('/feed');
+      if (response.ok) {
+        setPosts(response.body.data)
       } else {
         setPosts(null);
       }
     })();
-  }, []);
+  }, [api]);
 
   return (
     <>
