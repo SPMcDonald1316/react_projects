@@ -63,3 +63,9 @@
   margin-bottom: 10px;
   text-align: right;
 }
+
+/* INPUT FIELD COMPONENT */
+.InputField {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
