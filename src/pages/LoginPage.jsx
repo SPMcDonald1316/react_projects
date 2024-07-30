@@ -17,7 +17,17 @@ function LoginPage() {
     const username = usernameField.current.value;
     const password = passwordField.current.value;
 
-    console.log(`You entered ${username}:${password}`);
+    const errors = {};
+    if (!username) {
+      errors.username = 'Username must not be empty.';
+    }
+    if (!password) {
+      errors.password = 'Password must not be empty.';
+    }
+    setFormErrors(errors);
+    if (Object.keys(errors).length > 0) {
+      return;
+    }
   };
 
   return (
