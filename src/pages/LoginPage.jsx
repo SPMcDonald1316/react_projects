@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Form, Button } from 'react-bootstrap';
 import Body from "../components/Body";
 import InputField from '../components/InputField';
+import { Link } from "react-router-dom";
 
 function LoginPage() {
   const [formErrors, setFormErrors] = useState({});
@@ -49,6 +50,8 @@ function LoginPage() {
         />
         <Button variant="primary" type="submit">Login</Button>
       </Form>
+      <hr />
+      <p>Don&apos;t have an account? <Link to="/register">Register here</Link>!</p>
     </Body>
   );
 }
