@@ -1,5 +1,6 @@
 import { Container, Stack } from "react-bootstrap";
 import Sidebar from "./Sidebar";
+import FlashMessage from "./FlashMessage";
 
 function Body({sidebar, children}) {
   return (
@@ -7,6 +8,7 @@ function Body({sidebar, children}) {
       <Stack direction="horizontal" className="Body">
         {sidebar && <Sidebar />}
         <Container className="Content">
+          <FlashMessage />
           {children}
         </Container>
       </Stack>
