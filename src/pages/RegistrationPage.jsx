@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import Body from "../components/Body";
 import InputField from "../components/InputField";
+import { useApi } from "../contexts/ApiProvider";
 
 function RegistrationPage() {
   const [formErrors, setFormErrors] = useState({});
@@ -9,13 +11,30 @@ function RegistrationPage() {
   const emailField = useRef();
   const passwordField = useRef();
   const password2Field = useRef();
+  const navigate = useNavigate();
+  const api = useApi()
 
   useEffect(() => {
     usernameField.current.focus();
   }, []);
 
   const onSubmit = async (event) => {
-    // TODO
+    event.preventDefault();
+    if (passwordField.current.value !== password2Field.current.value) {
+      setFormErrors({password2: "Passwords don't match"});
+    } else {
+      const data = await api.post('/users', {
+        username: usernameField.current.value,
+        email: emailField.current.value,
+        password: passwordField.current.value
+      });
+      if (!data.ok) {
+        setFormErrors(data.body.errors.json);
+      } else {
+        setFormErrors({});
+        navigate('/login');
+      }
+    }
   };
 
   return (
