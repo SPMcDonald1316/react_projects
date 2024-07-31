@@ -9,6 +9,8 @@ import UserPage from './pages/UserPage';
 import LoginPage from './pages/LoginPage';
 import RegistrationPage from './pages/RegistrationPage';
 import UserProvider from './contexts/UserProvider';
+import PrivateRoute from './components/PrivateRoute';
+import PublicRoute from './components/PublicRoute';
 
 function App() {
   return (
@@ -19,12 +21,22 @@ function App() {
             <UserProvider>
               <Header />
               <Routes>
-                <Route path='/' element={<FeedPage />} />
-                <Route path='/explore' element={<ExplorePage />} />
-                <Route path='/user/:username' element={<UserPage />} />
-                <Route path='/login' element={<LoginPage />} />
-                <Route path='/register' element={<RegistrationPage />} />
-                <Route path='*' element={<Navigate to="/" />} />
+                <Route path='/login' element={
+                  <PublicRoute><LoginPage /></PublicRoute>
+                } />
+                <Route path='/register' element={
+                  <PublicRoute><RegistrationPage /></PublicRoute>
+                } />
+                <Route path="*" element={
+                  <PrivateRoute>
+                    <Routes>
+                      <Route path='/' element={<FeedPage />} />
+                      <Route path='/explore' element={<ExplorePage />} />
+                      <Route path='/user/:username' element={<UserPage />} />
+                      <Route path='*' element={<Navigate to="/" />} />
+                    </Routes>
+                  </PrivateRoute>
+                } />
               </Routes>
             </UserProvider>
           </ApiProvider>
