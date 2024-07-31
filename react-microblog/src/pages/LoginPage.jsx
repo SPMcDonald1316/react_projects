@@ -38,10 +38,8 @@ function LoginPage() {
 
     const result = await login(username, password);
     if (result === 'fail') {
-      console.log(`******************${result}**************`)
       flash('Invalid username or password', 'danger')
     } else if (result === 'ok') {
-      console.log(`*******************${result}*************`)
       let next = '/';
       if (location.state && location.state.next) {
         next = location.state.next;
