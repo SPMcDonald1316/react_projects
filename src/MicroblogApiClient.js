@@ -75,6 +75,10 @@ class MicroblogApiClient {
     await this.delete('/tokens');
     localStorage.removeItem('accessToken');
   }
+
+  isAuthenticated() {
+    return localStorage.getItem('accessToken') !== null;
+  }
 }
 
 export default MicroblogApiClient
