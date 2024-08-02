@@ -19,7 +19,7 @@ function ChangePasswordPage() {
     oldPasswordField.current.focus();
   }, []);
 
-  const onSubmit = (ev) => {
+  const onSubmit = async (ev) => {
     ev.preventDefault();
     if (passwordField.current.value !== password2Field.current.value) {
       setFormErrors({password2: "New passwords don't match"});
