@@ -39,7 +39,7 @@ function UserPage() {
   }, [username, api, loggedInUser]);
 
   const edit = () => {
-    // TODO
+    navigate('/edit');
   };
 
   const follow = async () => {
