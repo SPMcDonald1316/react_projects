@@ -1,7 +1,8 @@
 const BASE_API_URL = 'http://localhost:4000';
 
 class MicroblogApiClient {
-  constructor() {
+  constructor(onError) {
+    this.onError = onError
     this.base_url = `${BASE_API_URL}/api`;
   }
 
@@ -15,6 +16,9 @@ class MicroblogApiClient {
         localStorage.setItem('accessToken', refreshResponse.body.access_token);
         response = await this.requestInternal(options);
       }
+    }
+    if (response.status >= 500 && this.onError) {
+      this.onError(response);
     }
     return response;
   }
