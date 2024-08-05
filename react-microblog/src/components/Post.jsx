@@ -1,8 +1,9 @@
+import { memo } from "react";
 import { Stack, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import TimeAgo from './TimeAgo';
 
-function Post({ post }) {
+export default memo(function Post({ post }) {
   return (
     <Stack direction="horizontal" gap={3} className="Post">
       <Image src={post.author.avatar_url + '&s=48'}
@@ -19,6 +20,4 @@ function Post({ post }) {
       </div>
     </Stack>
   );
-}
-
-export default Post;
+});
