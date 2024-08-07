@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
 import { useEffect } from "react";
 import FlashProvider from '../src/contexts/FlashProvider';
 import { useFlash } from "../src/contexts/FlashProvider";
@@ -33,4 +33,8 @@ test('flashes a message', async () => {
 
   expect(alert).toHaveTextContent('foo');
   expect(alert).toHaveClass('alert-danger');
+  expect(alert).toHaveAttribute('data-visible', 'true');
+
+  act(() => vitest.runAllTimers());
+  expect(alert).toHaveAttribute('data-visible', 'false');
 });
