@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
+    "jest": "^29.7.0",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.4",
     "react-dom": "^18.3.1",
@@ -20,6 +21,8 @@
   "devDependencies": {
     "@import-meta-env/cli": "^0.6.9",
     "@import-meta-env/unplugin": "^0.5.2",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.0.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
