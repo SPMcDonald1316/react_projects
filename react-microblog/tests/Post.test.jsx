@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import Post from '../src/components/Post';
-import { expect, test } from 'vitest';
 
 test('it renders all the components of the post', () => {
   const timestampUTC = '2020-01-01T00:00:00.000Z';
