@@ -12,5 +12,5 @@ A blog with a React frontend (this repo) and using a pre provided backend (built
 
 Built from following the React Mega-Tutorial
 Created by Miguel Grinberg
-Tutorial located on his <a src="https://blog.miguelgrinberg.com/post/introducing-the-react-mega-tutorial">blog</a>
+Tutorial located on his [blog](https://blog.miguelgrinberg.com/post/introducing-the-react-mega-tutorial)
 </pre>
