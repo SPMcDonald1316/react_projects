@@ -1,4 +1,4 @@
-# React Tutorials
+# React Projects
 
 
 ## A Repository of React Applications
