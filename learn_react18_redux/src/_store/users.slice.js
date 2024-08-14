@@ -20,7 +20,7 @@ function createInitialState() {
 }
 
 function createExtraActions() {
-  const baseUrl = `${process.env.REACT_APP_API_URL}/users`;
+  const baseUrl = `${import.meta.env.VITE_REACT_APP_API_URL}/users`;
 
   return {
     getAll: getAll()
