@@ -1,10 +1,24 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import { store } from './_store';
+import { App } from './App';
+import './index.css';
 
-createRoot(document.getElementById('root')).render(
+// setup fake backend
+import { fakeBackend } from './_helpers';
+fakeBackend();
+
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+root.render(
   <StrictMode>
-    <App />
-  </StrictMode>,
-)
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </StrictMode>
+);
