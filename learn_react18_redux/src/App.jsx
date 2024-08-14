@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Routes, Route, Navigate, useNavigate, useLocation } from "react-router-dom";
+import { history } from './_helpers';
+import { Nav, PrivateRoute } from './_components';
+import { Home } from './home';
+import { Login } from "./login";
+
+export { App };
 
 function App() {
-  const [count, setCount] = useState(0)
+  // init custom history object to allow navigation from
+  // anywhere in the react app (inside or outside components)
+  history.navigate = useNavigate();
+  history.location = useLocation();
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="app-container bg-light">
+      <Nav />
+      <div className="container pt-4 pb-4">
+        <Routes>
+          <Route path="/" element={
+            <PrivateRoute>
+              <Home />
+            </PrivateRoute>
+          }/>
+          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
-
-export default App
