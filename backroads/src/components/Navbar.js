@@ -1,6 +1,6 @@
 import logo from '../images/logo.svg';
-import PageLink from './PageLink';
-import SocialLink from './SocialLink';
+import PageLinks from './PageLinks';
+import SocialLinks from './SocialLinks';
 
 const NavBar = () => {
   return (
@@ -12,9 +12,10 @@ const NavBar = () => {
             <i className='fas fa-bars'></i>
           </button>
         </div>
-        <PageLink parentClass='nav-links' itemClass='nav-link' />
 
-        <SocialLink parentClass='nav-icons' itemClass='nav-icon' />
+        <PageLinks parentClass='nav-links' itemClass='nav-link' />
+
+        <SocialLinks parentClass='nav-icons' itemClass='nav-icon' />
       </div>
     </nav>
   );

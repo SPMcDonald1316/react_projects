@@ -1,6 +1,6 @@
 import { pageLinks } from '../data';
 
-const PageLink = ({ parentClass, itemClass }) => {
+const PageLinks = ({ parentClass, itemClass }) => {
   return (
     <ul className={parentClass}>
       {pageLinks.map((link) => (
@@ -14,4 +14,4 @@ const PageLink = ({ parentClass, itemClass }) => {
   );
 };
 
-export default PageLink;
+export default PageLinks;
