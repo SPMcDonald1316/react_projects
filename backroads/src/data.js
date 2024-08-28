@@ -44,7 +44,7 @@ export const services = [
 
 export const tours = [
   {
-    id: 1,
+    id: 11,
     image: tour1,
     date: 'august 26th, 2020',
     title: 'Tibet Adventure',
@@ -56,7 +56,7 @@ export const tours = [
   {
     id: 12,
     image: tour2,
-    date: 'october 1th, 2020',
+    date: 'october 1st, 2020',
     title: 'best of java',
     info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus dui, vehicula vel lectus pharetra, sagittis tempus turpis. Donec quis ipsum sagittis, varius orci nec.',
     location: 'indonesia',
@@ -94,7 +94,7 @@ export const tours = [
     cost: 4645,
   },
   {
-    id: 14,
+    id: 16,
     image: tour6,
     date: 'january 29th, 2019',
     title: 'grand tour of india',
