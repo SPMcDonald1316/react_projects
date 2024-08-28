@@ -1,3 +1,10 @@
+import tour1 from './images/tour-1.jpeg';
+import tour2 from './images/tour-2.jpeg';
+import tour3 from './images/tour-3.jpeg';
+import tour4 from './images/tour-4.jpeg';
+import tour5 from './images/tour-5.jpeg';
+import tour6 from './images/tour-6.jpeg';
+
 export const pageLinks = [
   { id: 1, href: '#home', text: 'home' },
   { id: 2, href: '#about', text: 'about' },
@@ -32,5 +39,68 @@ export const services = [
     title: 'amazing comfort',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce convallis, urna ac pretium posuere, justo.',
+  },
+];
+
+export const tours = [
+  {
+    id: 1,
+    image: tour1,
+    date: 'august 26th, 2020',
+    title: 'Tibet Adventure',
+    info: ` Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque vitae tempore voluptatum maxime reprehenderit eum quod exercitationem fugit, qui corporis.`,
+    location: 'china',
+    duration: 6,
+    cost: 2100,
+  },
+  {
+    id: 12,
+    image: tour2,
+    date: 'october 1th, 2020',
+    title: 'best of java',
+    info: ` Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque vitae tempore voluptatum maxime reprehenderit eum quod exercitationem fugit, qui corporis.`,
+    location: 'indonesia',
+    duration: 11,
+    cost: 1400,
+  },
+  {
+    id: 13,
+    image: tour3,
+    date: 'september 15th, 2020',
+    title: 'explore hong kong',
+    info: ` Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque vitae tempore voluptatum maxime reprehenderit eum quod exercitationem fugit, qui corporis.`,
+    location: 'hong kong',
+    duration: 8,
+    cost: 5000,
+  },
+  {
+    id: 14,
+    image: tour4,
+    date: 'december 5th, 2019',
+    title: 'kenya highlights',
+    info: ` Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque vitae tempore voluptatum maxime reprehenderit eum quod exercitationem fugit, qui corporis.`,
+    location: 'kenya',
+    duration: 20,
+    cost: 3300,
+  },
+  {
+    id: 15,
+    image: tour5,
+    date: 'september 12th, 2019',
+    title: 'essential peru',
+    info: ` Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque vitae tempore voluptatum maxime reprehenderit eum quod exercitationem fugit, qui corporis.`,
+    location: 'peru',
+    duration: 16,
+    cost: 4645,
+  },
+  {
+    id: 14,
+    image: tour6,
+    date: 'january 29th, 2019',
+    title: 'grand tour of india',
+    info: ` Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque vitae tempore voluptatum maxime reprehenderit eum quod exercitationem fugit, qui corporis.`,
+    location: 'india',
+    duration: 10,
+    cost: 5080,
   },
 ];
