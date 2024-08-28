@@ -1,31 +1,12 @@
-import { pageLinks, socialLinks } from '../data';
+import PageLink from './PageLink';
+import SocialLink from './SocialLink';
 
 const Footer = () => {
   return (
     <footer className='section footer'>
-      <ul className='footer-links'>
-        {pageLinks.map((link) => (
-          <li key={link.id}>
-            <a href={link.href} className='footer-link'>
-              {link.text}
-            </a>
-          </li>
-        ))}
-      </ul>
-      <ul className='footer-icons'>
-        {socialLinks.map((link) => (
-          <li key={link.id}>
-            <a
-              href={link.href}
-              target='_blank'
-              className='footer-icon'
-              rel='noreferrer'
-            >
-              <i className={link.icon}></i>
-            </a>
-          </li>
-        ))}
-      </ul>
+      <PageLink parentClass='footer-links' itemClass='footer-link' />
+
+      <SocialLink parentClass='footer-icons' itemClass='footer-icon' />
       <p className='copyright'>
         copyright &copy; backroads travel tours company
         <span id='date'>{new Date().getFullYear()}</span> all rights reserved
