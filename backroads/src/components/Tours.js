@@ -8,16 +8,7 @@ const Tours = () => {
       <Title title='featured' spanContent='tours' />
       <div className='section-center featured-center'>
         {tours.map((tour) => (
-          <Tour
-            key={tour.id}
-            image={tour.image}
-            date={tour.date}
-            title={tour.title}
-            info={tour.info}
-            location={tour.location}
-            duration={tour.duration}
-            cost={tour.cost}
-          />
+          <Tour key={tour.id} {...tour} />
         ))}
       </div>
     </section>

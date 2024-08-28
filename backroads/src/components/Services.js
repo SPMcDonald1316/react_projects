@@ -9,12 +9,7 @@ const Sevices = () => {
 
       <div className='section-center services-center'>
         {services.map((service) => (
-          <Service
-            key={service.id}
-            icon={service.icon}
-            title={service.title}
-            description={service.description}
-          />
+          <Service key={service.id} {...service} />
         ))}
       </div>
     </section>
