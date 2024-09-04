@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import data from './data';
+import List from './components/List';
 
 function App() {
   const [birthdays, setBirthdays] = useState(data);
@@ -9,21 +10,15 @@ function App() {
   };
 
   return (
-    <div className='container'>
-      <h3>{birthdays.length} birthdays today</h3>
-      {birthdays.map((birthday) => {
-        return (
-          <div key={birthday.id} className='person'>
-            <img src={birthday.image}></img>
-            <h4>{birthday.name}</h4>
-            <p>{birthday.age} years</p>
-          </div>
-        );
-      })}
-      <button type='button' className='btn' onClick={clear}>
-        clear all
-      </button>
-    </div>
+    <main>
+      <section className='container'>
+        <h3>{birthdays.length} birthdays today</h3>
+        <List birthdays={birthdays} />
+        <button type='button' className='btn btn-block' onClick={clear}>
+          clear all
+        </button>
+      </section>
+    </main>
   );
 }
 
