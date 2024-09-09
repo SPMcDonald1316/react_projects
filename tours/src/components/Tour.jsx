@@ -1,11 +1,13 @@
-const Tour = ({ image, info, name, price }) => {
+const Tour = ({ id, image, info, name, price }) => {
   return (
-    <div>
-      <img src={image} alt={name} />
-      <h4>{name}</h4>
-      <p>{info}</p>
-      <p>{price}</p>
-    </div>
+    <article className='single-tour'>
+      <img src={image} alt={name} className='img' />
+      <span className='tour-price'>${price}</span>
+      <div className='tour-info'>
+        <h5>{name}</h5>
+        <p>{info}</p>
+      </div>
+    </article>
   );
 };
 export default Tour;
