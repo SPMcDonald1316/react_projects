@@ -28,6 +28,14 @@ const App = () => {
     fetchData();
   }, []);
 
+  if (isLoading) {
+    return (
+      <main>
+        <Loading />;
+      </main>
+    );
+  }
+
   if (tours.length === 0) {
     return (
       <main>
@@ -48,11 +56,7 @@ const App = () => {
 
   return (
     <main>
-      {isLoading ? (
-        <Loading />
-      ) : (
-        <Tours tours={tours} removeTour={removeTour} refresh={fetchData} />
-      )}
+      <Tours tours={tours} removeTour={removeTour} refresh={fetchData} />
     </main>
   );
 };
