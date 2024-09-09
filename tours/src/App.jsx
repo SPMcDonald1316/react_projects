@@ -32,7 +32,11 @@ const App = () => {
 
   return (
     <main>
-      {isLoading ? <Loading /> : <Tours tours={tours} func={removeTour} />}
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <Tours tours={tours} removeTour={removeTour} refresh={fetchData} />
+      )}
     </main>
   );
 };
