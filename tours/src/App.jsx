@@ -28,7 +28,23 @@ const App = () => {
     fetchData();
   }, []);
 
-  console.log(tours);
+  if (tours.length === 0) {
+    return (
+      <main>
+        <div className='title'>
+          <h2>no tours</h2>
+          <button
+            type='button'
+            style={{ marginTop: '2rem' }}
+            className='btn'
+            onClick={fetchData}
+          >
+            refresh
+          </button>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main>
