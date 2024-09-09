@@ -19,12 +19,21 @@ const App = () => {
     }
   };
 
+  const removeTour = (id) => {
+    let filteredTours = tours.filter((tour) => tour.id !== id);
+    setTours(filteredTours);
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
 
   console.log(tours);
 
-  return <main>{isLoading ? <Loading /> : <Tours tours={tours} />}</main>;
+  return (
+    <main>
+      {isLoading ? <Loading /> : <Tours tours={tours} func={removeTour} />}
+    </main>
+  );
 };
 export default App;
