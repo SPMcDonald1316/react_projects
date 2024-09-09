@@ -1,5 +1,5 @@
-const Loading = ({ msg }) => {
-  return <h3>{msg}</h3>;
+const Loading = () => {
+  return <div className='loading'></div>;
 };
 
 export default Loading;

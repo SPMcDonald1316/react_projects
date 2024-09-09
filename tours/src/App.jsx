@@ -25,10 +25,6 @@ const App = () => {
 
   console.log(tours);
 
-  return (
-    <>
-      {isLoading ? <Loading msg='Loading Data...' /> : <Tours tours={tours} />}
-    </>
-  );
+  return <main>{isLoading ? <Loading /> : <Tours tours={tours} />}</main>;
 };
 export default App;
