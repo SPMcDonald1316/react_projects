@@ -32,16 +32,16 @@ const App = () => {
         <p className='job'>{job}</p>
         <p className='info'>{text}</p>
         <div className='btn-container'>
-          <button type='button' className='btn prev-btn' onClick={prev}>
+          <button type='button' className='prev-btn' onClick={prev}>
             <FaChevronLeft />
           </button>
-          <button type='button' className='btn next-btn' onClick={next}>
+          <button type='button' className='next-btn' onClick={next}>
             <FaChevronRight />
           </button>
-          <button type='button' className='btn-hipster' onClick={random}>
-            surprise me
-          </button>
         </div>
+        <button type='button' className='btn btn-hipster' onClick={random}>
+          surprise me
+        </button>
       </article>
     </main>
   );
