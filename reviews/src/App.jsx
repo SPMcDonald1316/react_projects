@@ -6,6 +6,19 @@ const App = () => {
   const [index, setIndex] = useState(0);
   const { name, job, image, text } = people[index];
 
+  const next = () => {
+    index === people.length - 1 ? setIndex(0) : setIndex(index + 1);
+  };
+
+  const prev = () => {
+    index === 0 ? setIndex(people.length - 1) : setIndex(index - 1);
+  };
+
+  const random = () => {
+    const randIndex = Math.floor(Math.random() * people.length);
+    setIndex(randIndex);
+  };
+
   return (
     <main>
       <article className='review'>
