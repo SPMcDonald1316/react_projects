@@ -1,13 +1,19 @@
+import { useState } from 'react';
+
 const Question = ({ title, info }) => {
+  const [isActive, setIsActive] = useState(false);
+
+  const display = () => setIsActive(!isActive);
+
   return (
     <div className='question'>
       <header>
         <h5>{title}</h5>
-        <button type='button' className='question-btn'>
+        <button type='button' className='question-btn' onClick={display}>
           +
         </button>
       </header>
-      <p>{info}</p>
+      {isActive && <p>{info}</p>}
     </div>
   );
 };
