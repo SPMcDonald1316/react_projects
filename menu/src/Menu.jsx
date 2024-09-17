@@ -3,9 +3,6 @@ import MenuItem from './MenuItem';
 const Menu = ({ menuItems, filterMenu }) => {
   return (
     <>
-      <section className='section-center'>
-        <h1 className='title title-underline'>Our Menu</h1>
-      </section>
       <section className='button-container'>
         <button className='btn' onClick={() => filterMenu('all')}>
           all

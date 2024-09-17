@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import data from './data';
 import Menu from './Menu';
+import Title from './Title';
 
 function App() {
   const [menuItems, setMenuItems] = useState(data);
@@ -16,6 +17,7 @@ function App() {
 
   return (
     <main>
+      <Title />
       <Menu menuItems={menuItems} filterMenu={filterMenu} />
     </main>
   );
