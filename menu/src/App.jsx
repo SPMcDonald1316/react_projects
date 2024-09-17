@@ -17,8 +17,10 @@ function App() {
 
   return (
     <main>
-      <Title />
-      <Menu menuItems={menuItems} filterMenu={filterMenu} />
+      <section className='menu'>
+        <Title text={'Our Menu'} />
+        <Menu menuItems={menuItems} filterMenu={filterMenu} />
+      </section>
     </main>
   );
 }

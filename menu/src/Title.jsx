@@ -1,8 +1,9 @@
-const Title = () => {
+const Title = ({ text }) => {
   return (
-    <header className='title title-underline'>
-      <h1>our menu</h1>
-    </header>
+    <div className='title'>
+      <h2>{text || 'Default Title'}</h2>
+      <div className='title-underline'></div>
+    </div>
   );
 };
 
