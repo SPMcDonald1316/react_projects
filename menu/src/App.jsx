@@ -3,8 +3,17 @@ import data from './data';
 import Menu from './Menu';
 import Title from './Title';
 
+/* Step by step unique categories
+const tempCategories = data.map(item => item.category)
+const tempSet = new Set(tempCategories)
+const tempItems = ['all', ...tempSet]
+*/
+
+const allCategories = ['all', ...new Set(data.map((item) => item.category))];
+
 function App() {
   const [menuItems, setMenuItems] = useState(data);
+  const [categories, setCategories] = useState(allCategories);
 
   const filterMenu = (category) => {
     if (category === 'all') {
