@@ -2,6 +2,7 @@ import { useState } from 'react';
 import data from './data';
 import Menu from './Menu';
 import Title from './Title';
+import Categories from './Categories';
 
 /* Step by step unique categories
 const tempCategories = data.map(item => item.category)
@@ -28,6 +29,7 @@ function App() {
     <main>
       <section className='menu'>
         <Title text='our menu' />
+        <Categories categories={categories} />
         <Menu menuItems={menuItems} filterMenu={filterMenu} />
       </section>
     </main>
