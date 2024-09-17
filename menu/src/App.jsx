@@ -19,18 +19,18 @@ function App() {
   const filterMenu = (category) => {
     if (category === 'all') {
       setMenuItems(data);
-    } else {
-      const filteredMenu = data.filter((item) => item.category === category);
-      setMenuItems(filteredMenu);
+      return;
     }
+    const filteredMenu = data.filter((item) => item.category === category);
+    setMenuItems(filteredMenu);
   };
 
   return (
     <main>
       <section className='menu'>
         <Title text='our menu' />
-        <Categories categories={categories} />
-        <Menu menuItems={menuItems} filterMenu={filterMenu} />
+        <Categories categories={categories} filterMenu={filterMenu} />
+        <Menu menuItems={menuItems} />
       </section>
     </main>
   );

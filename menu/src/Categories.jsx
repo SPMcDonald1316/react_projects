@@ -1,9 +1,14 @@
-const Categories = ({ categories }) => {
+const Categories = ({ categories, filterMenu }) => {
   return (
     <div className='btn-container'>
       {categories.map((category) => {
         return (
-          <button type='button' className='btn' key={category}>
+          <button
+            type='button'
+            className='btn'
+            key={category}
+            onClick={() => filterMenu(category)}
+          >
             {category}
           </button>
         );
