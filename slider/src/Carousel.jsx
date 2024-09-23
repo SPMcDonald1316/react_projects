@@ -27,7 +27,11 @@ const Carousel = () => {
         return (
           <article
             className='slide'
-            style={{ transform: `translateX(${100 * (index - current)}%)` }}
+            style={{
+              transform: `translateX(${100 * (index - current)}%)`,
+              opacity: index === current ? 1 : 0,
+              visibility: index === current ? 'visible' : 'hidden',
+            }}
             key={id}
           >
             <img src={image} alt={name} className='person-img' />
