@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-import JobInfo from './JobInfo';
 
 const url = 'https://www.course-api.com/react-tabs-project';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [jobs, setJobs] = useState(null);
+  const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
     (async () => {
@@ -17,13 +16,16 @@ function App() {
   }, []);
 
   if (isLoading) {
-    return <h2>Loading...</h2>;
+    return (
+      <section className='jobs-center'>
+        <div className='loading'></div>
+      </section>
+    );
   }
 
   return (
     <main>
       <h2>Jobs Starter</h2>
-      <JobInfo />
     </main>
   );
 }
