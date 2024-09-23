@@ -1,17 +1,9 @@
-import { useState } from 'react';
-import Slide from './Slide';
-import { longList } from './data';
+import Carousel from './Carousel';
 
 const App = () => {
-  const [slides, setSlides] = useState(longList);
-
   return (
     <main>
-      <section className='slider-container'>
-        {slides.map((slide) => {
-          return <Slide key={slide.id} {...slide} />;
-        })}
-      </section>
+      <Carousel />
     </main>
   );
 };
