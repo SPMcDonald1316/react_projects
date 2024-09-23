@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import Slide from './Slide';
-import data from './data';
+import { longList } from './data';
 
 const App = () => {
-  const [slides, setSlides] = useState(data);
+  const [slides, setSlides] = useState(longList);
 
   return (
     <main>
       <section className='slider-container'>
         {slides.map((slide) => {
-          <Slide {...slide} />;
+          return <Slide key={slide.id} {...slide} />;
         })}
       </section>
     </main>
