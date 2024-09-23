@@ -7,6 +7,7 @@ const url = 'https://www.course-api.com/react-tabs-project';
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [jobs, setJobs] = useState([]);
+  const [activeJob, setActiveJob] = useState({});
 
   useEffect(() => {
     (async () => {
@@ -14,6 +15,7 @@ function App() {
       const data = await response.json();
       setJobs(data);
       setIsLoading(false);
+      setActiveJob(data[0]);
     })();
   }, []);
 
@@ -25,10 +27,15 @@ function App() {
     );
   }
 
+  const displayJob = (jobOrder) => {
+    const job = jobs.find((job) => job.order === jobOrder);
+    setActiveJob(job);
+  };
+
   return (
     <section className='jobs-center'>
-      <BtnContainer jobs={jobs} />
-      <JobInfo jobs={jobs} />
+      <BtnContainer jobs={jobs} displayJob={displayJob} />
+      <JobInfo activeJob={activeJob} />
     </section>
   );
 }
