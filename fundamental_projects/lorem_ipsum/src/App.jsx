@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { nanoid } from 'nanoid';
 import data from './data';
 
 const App = () => {
@@ -48,6 +49,8 @@ const App = () => {
     setText(data.slice(0, count));
   };
 
+  const id = nanoid();
+
   return (
     <section className='section-center'>
       <h4>tired of boring lorem ipsum?</h4>
@@ -68,8 +71,8 @@ const App = () => {
         </button>
       </form>
       <article className='lorem-text'>
-        {text.map((item, index) => {
-          return <p key={index}>{item}</p>;
+        {text.map((item) => {
+          return <p key={id}>{item}</p>;
         })}
       </article>
     </section>
