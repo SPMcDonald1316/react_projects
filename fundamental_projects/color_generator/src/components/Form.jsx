@@ -1,10 +1,11 @@
 import { useState } from 'react';
 
-const Form = () => {
+const Form = ({ changeColorList }) => {
   const [color, setColor] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    changeColorList(color);
   };
 
   return (
