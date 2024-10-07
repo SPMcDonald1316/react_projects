@@ -3,10 +3,10 @@ import Form from './components/Form';
 
 const App = () => {
   return (
-    <div>
+    <main>
       <Form />
       <ColorList />
-    </div>
+    </main>
   );
 };
 export default App;
