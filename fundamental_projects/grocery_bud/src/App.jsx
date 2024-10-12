@@ -15,10 +15,15 @@ function App() {
     setItems([...items, newItem]);
   };
 
+  const removeItem = (id) => {
+    const filteredItems = items.filter((item) => item.id !== id);
+    setItems(filteredItems);
+  };
+
   return (
     <section className='section-center'>
       <Form addItem={addItem} />
-      <Items items={items} />
+      <Items items={items} removeItem={removeItem} />
     </section>
   );
 }
