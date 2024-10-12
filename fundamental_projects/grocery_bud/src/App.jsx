@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import Form from './components/Form';
 import { nanoid } from 'nanoid';
+import Form from './components/Form';
+import Items from './components/Items';
 
 function App() {
   const [items, setItems] = useState([]);
@@ -17,6 +18,7 @@ function App() {
   return (
     <section className='section-center'>
       <Form addItem={addItem} />
+      <Items items={items} />
     </section>
   );
 }
