@@ -1,13 +1,15 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const Form = ({ addItem }) => {
   const [newItem, setNewItem] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!newItem) return;
+    if (!newItem) return toast.error('please provide a value');
 
     addItem(newItem);
+    toast.success('Item added to list');
     setNewItem('');
   };
 
