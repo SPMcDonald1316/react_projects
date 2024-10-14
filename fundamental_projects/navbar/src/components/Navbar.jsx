@@ -3,7 +3,7 @@ import { FaBars } from 'react-icons/fa';
 import { links, social } from '../data';
 import logo from '../logo.svg';
 
-// USING USE REF TO DYNAMICALLY SET CONTAINER
+// USING USE REF TO DYNAMICALLY SET CONTAINER SIZE
 const Navbar = () => {
   const [showLinks, setShowLinks] = useState(false);
   const linksContainerRef = useRef(null);
@@ -42,6 +42,15 @@ const Navbar = () => {
             })}
           </ul>
         </div>
+        <ul className='social-icons'>
+          {social.map((icon) => {
+            return (
+              <li key={icon.id}>
+                <a href={icon.url}>{icon.icon}</a>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </nav>
   );
