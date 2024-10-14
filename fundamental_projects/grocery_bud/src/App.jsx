@@ -28,15 +28,21 @@ function App() {
     setLocalStorage(filteredItems);
   };
 
-  const updateItem = (id) => {
-    const update = items.find((item) => item.id === id);
-    console.log(update);
+  const editItem = (id) => {
+    const newItems = items.map((item) => {
+      if (item.id === id) {
+        return { ...item, completed: !item.completed };
+      }
+      return item;
+    });
+    setItems(newItems);
+    setLocalStorage(newItems);
   };
 
   return (
     <section className='section-center'>
       <Form addItem={addItem} />
-      <Items items={items} removeItem={removeItem} />
+      <Items items={items} removeItem={removeItem} editItem={editItem} />
     </section>
   );
 }
