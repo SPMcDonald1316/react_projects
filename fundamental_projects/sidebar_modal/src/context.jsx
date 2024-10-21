@@ -1,10 +1,10 @@
 import { createContext, useContext, useState } from 'react';
 
-const GlobalContext = createContext();
+const AppContext = createContext();
 
-export const useGlobalContext = () => useContext(GlobalContext);
+export const useAppContext = () => useContext(AppContext);
 
-const ToggleContext = ({ children }) => {
+const ToggleProvider = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -14,7 +14,7 @@ const ToggleContext = ({ children }) => {
   const closeSidebar = () => setIsSidebarOpen(false);
 
   return (
-    <GlobalContext.Provider
+    <AppContext.Provider
       value={{
         isModalOpen,
         isSidebarOpen,
@@ -25,7 +25,7 @@ const ToggleContext = ({ children }) => {
       }}
     >
       {children}
-    </GlobalContext.Provider>
+    </AppContext.Provider>
   );
 };
-export default ToggleContext;
+export default ToggleProvider;
