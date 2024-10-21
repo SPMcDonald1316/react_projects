@@ -1,5 +1,5 @@
 function App() {
-  return <h2>sidebar stater</h2>;
+  return <h2>sidebar starter</h2>;
 }
 
 export default App;
