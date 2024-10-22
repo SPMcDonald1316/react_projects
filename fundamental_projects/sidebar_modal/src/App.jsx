@@ -5,9 +5,9 @@ import Sidebar from './components/Sidebar';
 function App() {
   return (
     <>
-      <Sidebar />
       <Home />
       <Modal />
+      <Sidebar />
     </>
   );
 }
