@@ -280,6 +280,12 @@ main {
   }
 }
 
+.hide-btn {
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+}
+
 @keyframes bounce {
   0% {
     transform: scale(1);
@@ -352,7 +358,15 @@ main {
   row-gap: 1rem;
   box-shadow: var(--red-dark);
   transition: var(--transition);
-  /* toggle logic */
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+}
+
+.show-sidebar {
+  opacity: 1;
+  visibility: visible;
+  z-index: 10;
 }
 
 @media screen and (min-width: 676px) {
