@@ -1,10 +1,10 @@
-const { createContext, useContext, useState } = require('react');
+import { createContext, useContext, useState } from 'react';
 
 const AppContext = createContext();
 
 export const useAppContext = () => useContext(AppContext);
 
-const ToggleProvider = ({ children }) => {
+const AppProvider = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const openSidebar = () => {
@@ -21,4 +21,4 @@ const ToggleProvider = ({ children }) => {
     </AppContext.Provider>
   );
 };
-export default ToggleProvider;
+export default AppProvider;
