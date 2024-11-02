@@ -445,7 +445,7 @@ nav {
   .submenu {
     display: block;
     position: fixed;
-    top: 6rem;
+    top: 4rem;
     left: 50%;
     width: var(--fluid-width);
     max-width: var(--max-width);
@@ -458,6 +458,7 @@ nav {
     opacity: 0;
     transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
     border-radius: var(--borderRadius);
+    z-index: -1;
 
     h5 {
       margin-bottom: 1rem;
@@ -469,6 +470,7 @@ nav {
     visibility: visible;
     opacity: 1;
     transform: rotateX(0deg) translateX(-50%);
+    z-index: 10;
   }
 
   .submenu-links {
