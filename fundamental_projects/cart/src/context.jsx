@@ -8,13 +8,16 @@ import {
   LOADING,
   DISPLAY_ITEMS,
 } from './actions';
+import cartItems from './data';
 
 const AppContext = createContext();
+
+export const useAppContext = () => useContext(AppContext);
 
 export const AppProvider = ({ children }) => {
   const defaultState = {
     loading: false,
-    cart: [],
+    cart: new Map(cartItems.map((item) => [item.id, item])),
   };
 
   const [state, dispatch] = useReducer(reducer, defaultState);
@@ -22,8 +25,4 @@ export const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
   );
-};
-
-export const useAppContext = () => {
-  return useContext(AppContext);
 };

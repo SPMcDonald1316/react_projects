@@ -1,8 +1,9 @@
 import CartItem from './CartItem';
-import cartItems from './data';
+import { useAppContext } from './Context';
 
 const CartContainer = () => {
-  const cartArray = [...cartItems];
+  const { cart } = useAppContext();
+  const cartArray = Array.from(cart.entries());
 
   if (cartArray.length === 0) {
     return (
@@ -23,8 +24,9 @@ const CartContainer = () => {
       </header>
       {/* cart items */}
       <div>
-        {cartArray.map((item) => {
-          return <CartItem key={item.id} {...item} />;
+        {cartArray.map((cartItem) => {
+          const [id, item] = cartItem;
+          return <CartItem key={id} {...item} />;
         })}
       </div>
       {/* cart footer */}
