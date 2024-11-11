@@ -8,7 +8,6 @@ import {
 } from './actions';
 
 const reducer = (state, action) => {
-  let amount;
   let newCart;
   switch (action.type) {
     case CLEAR_CART:

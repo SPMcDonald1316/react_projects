@@ -9,18 +9,21 @@ import {
   DISPLAY_ITEMS,
 } from './actions';
 import cartItems from './data';
+import { getTotals } from './utils';
 
 const AppContext = createContext();
+
+const defaultState = {
+  loading: false,
+  cart: new Map(cartItems.map((item) => [item.id, item])),
+};
 
 export const useAppContext = () => useContext(AppContext);
 
 export const AppProvider = ({ children }) => {
-  const defaultState = {
-    loading: false,
-    cart: new Map(cartItems.map((item) => [item.id, item])),
-  };
-
   const [state, dispatch] = useReducer(reducer, defaultState);
+
+  const { totalAmount, totalCost } = getTotals(state.cart);
 
   const clearCart = () => {
     dispatch({ type: CLEAR_CART });
@@ -46,6 +49,8 @@ export const AppProvider = ({ children }) => {
         remove,
         increase,
         decrease,
+        totalAmount,
+        totalCost,
       }}
     >
       {children}
