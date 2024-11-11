@@ -29,4 +29,6 @@ const cartItems = [
   },
 ];
 
+export const url = 'https://www.course-api.com/react-useReducer-cart-project';
+
 export default cartItems;
