@@ -2,7 +2,7 @@ import { FaChevronUp, FaChevronDown } from 'react-icons/fa';
 import { useAppContext } from './Context';
 
 const CartItem = ({ id, img, title, price, amount }) => {
-  const { removeItem } = useAppContext();
+  const { removeItem, increaseAmount } = useAppContext();
 
   return (
     <article className='cart-item'>
@@ -17,7 +17,7 @@ const CartItem = ({ id, img, title, price, amount }) => {
       </div>
       <div>
         {/* increase amount */}
-        <button className='amount-btn' onClick={() => console.log('increase')}>
+        <button className='amount-btn' onClick={() => increaseAmount(id)}>
           <FaChevronUp className='amount-icon' />
         </button>
         {/* amount */}

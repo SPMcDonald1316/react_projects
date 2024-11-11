@@ -14,6 +14,10 @@ const reducer = (state, action) => {
     case REMOVE:
       state.cart.delete(action.id);
       return { ...state };
+    case INCREASE:
+      console.log('increase');
+      state.cart.get(action.id).amount++;
+      return { ...state };
     default:
       return state;
   }
