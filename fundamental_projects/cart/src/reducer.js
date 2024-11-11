@@ -11,6 +11,9 @@ const reducer = (state, action) => {
   switch (action.type) {
     case CLEAR_CART:
       return { ...state, cart: new Map() };
+    case REMOVE:
+      state.cart.delete(action.id);
+      return { ...state };
     default:
       return state;
   }
