@@ -9,22 +9,28 @@ import {
 
 const reducer = (state, action) => {
   let amount;
+  let newCart;
   switch (action.type) {
     case CLEAR_CART:
       return { ...state, cart: new Map() };
     case REMOVE:
-      state.cart.delete(action.id);
-      return { ...state };
+      newCart = new Map(state.cart);
+      newCart.delete(action.payload.id);
+      return { ...state, cart: newCart };
     case INCREASE:
-      state.cart.get(action.id).amount++;
-      return { ...state };
+      newCart = new Map(state.cart);
+      newCart.get(action.payload.id).amount++;
+      return { ...state, cart: newCart };
     case DECREASE:
-      state.cart.get(action.id).amount--;
-      amount = state.cart.get(action.id).amount;
-      if (amount === 0) state.cart.delete(action.id);
-      return { ...state };
+      newCart = new Map(state.cart);
+
+      newCart.get(action.payload.id).amount === 1
+        ? newCart.delete(action.payload.id)
+        : newCart.get(action.payload.id).amount--;
+
+      return { ...state, cart: newCart };
     default:
-      return state;
+      throw new Error(`no matching action type: ${action.type}`);
   }
 };
 export default reducer;

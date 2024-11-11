@@ -26,16 +26,16 @@ export const AppProvider = ({ children }) => {
     dispatch({ type: CLEAR_CART });
   };
 
-  const removeItem = (id) => {
-    dispatch({ type: REMOVE, id });
+  const remove = (id) => {
+    dispatch({ type: REMOVE, payload: { id } });
   };
 
-  const increaseAmount = (id) => {
-    dispatch({ type: INCREASE, id });
+  const increase = (id) => {
+    dispatch({ type: INCREASE, payload: { id } });
   };
 
-  const decreaseAmount = (id) => {
-    dispatch({ type: DECREASE, id });
+  const decrease = (id) => {
+    dispatch({ type: DECREASE, payload: { id } });
   };
 
   return (
@@ -43,9 +43,9 @@ export const AppProvider = ({ children }) => {
       value={{
         ...state,
         clearCart,
-        removeItem,
-        increaseAmount,
-        decreaseAmount,
+        remove,
+        increase,
+        decrease,
       }}
     >
       {children}
