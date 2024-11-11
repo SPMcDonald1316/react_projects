@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from 'react';
+import { createContext, useContext, useEffect, useReducer } from 'react';
 import reducer from './reducer';
 import {
   CLEAR_CART,
@@ -8,7 +8,7 @@ import {
   LOADING,
   DISPLAY_ITEMS,
 } from './actions';
-import cartItems from '../data';
+import cartItems, { url } from '../data';
 import { getTotals } from './utils';
 
 const AppContext = createContext();
@@ -40,6 +40,17 @@ export const AppProvider = ({ children }) => {
   const decrease = (id) => {
     dispatch({ type: DECREASE, payload: { id } });
   };
+
+  const fetchData = async () => {
+    dispatch({ type: LOADING });
+    const response = await fetch(url);
+    const data = await response.json();
+    dispatch({ type: DISPLAY_ITEMS, payload: { data } });
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <AppContext.Provider

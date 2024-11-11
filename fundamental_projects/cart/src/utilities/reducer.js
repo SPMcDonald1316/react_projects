@@ -28,6 +28,11 @@ const reducer = (state, action) => {
         : newCart.get(action.payload.id).amount--;
 
       return { ...state, cart: newCart };
+    case LOADING:
+      return { ...state, loading: true };
+    case DISPLAY_ITEMS:
+      newCart = new Map(action.payload.data.map((item) => [item.id, item]));
+      return { ...state, loading: false, cart: newCart };
     default:
       throw new Error(`no matching action type: ${action.type}`);
   }
