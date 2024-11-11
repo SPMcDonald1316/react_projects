@@ -1,5 +1,5 @@
 import { FaChevronUp, FaChevronDown } from 'react-icons/fa';
-import { useAppContext } from './Context';
+import { useAppContext } from '../utilities/context';
 
 const CartItem = ({ id, img, title, price, amount }) => {
   const { remove, increase, decrease } = useAppContext();

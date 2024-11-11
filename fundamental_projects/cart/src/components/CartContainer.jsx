@@ -1,5 +1,5 @@
 import CartItem from './CartItem';
-import { useAppContext } from './Context';
+import { useAppContext } from '../utilities/context';
 
 const CartContainer = () => {
   const { cart, clearCart, totalCost } = useAppContext();

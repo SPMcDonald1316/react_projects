@@ -1,5 +1,5 @@
 import { FaCartPlus } from 'react-icons/fa';
-import { useAppContext } from './Context';
+import { useAppContext } from '../utilities/context';
 
 const Navbar = () => {
   const { totalAmount } = useAppContext();

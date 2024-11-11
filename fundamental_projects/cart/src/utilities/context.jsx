@@ -8,7 +8,7 @@ import {
   LOADING,
   DISPLAY_ITEMS,
 } from './actions';
-import cartItems from './data';
+import cartItems from '../data';
 import { getTotals } from './utils';
 
 const AppContext = createContext();

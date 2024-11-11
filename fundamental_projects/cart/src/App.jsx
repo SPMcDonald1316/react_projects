@@ -1,5 +1,5 @@
-import CartContainer from './CartContainer';
-import Navbar from './Navbar';
+import CartContainer from './components/CartContainer';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
