@@ -8,14 +8,14 @@ import {
   LOADING,
   DISPLAY_ITEMS,
 } from './actions';
-import cartItems, { url } from '../data';
+import { url } from '../data';
 import { getTotals } from './utils';
 
 const AppContext = createContext();
 
 const defaultState = {
   loading: true,
-  cart: new Map(cartItems.map((item) => [item.id, item])),
+  cart: new Map(),
 };
 
 export const useAppContext = () => useContext(AppContext);
