@@ -5,9 +5,15 @@ const GlobalContext = createContext();
 export const useGlobalContext = () => useContext(GlobalContext);
 
 export const AppContext = ({ children }) => {
-  const greeting = 'hello';
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+
+  const toggleDarkTheme = () => {
+    const newDarkTheme = !isDarkTheme;
+    setIsDarkTheme(newDarkTheme);
+  };
+
   return (
-    <GlobalContext.Provider value={{ greeting }}>
+    <GlobalContext.Provider value={{ isDarkTheme, toggleDarkTheme }}>
       {children}
     </GlobalContext.Provider>
   );
