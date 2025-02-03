@@ -1,11 +1,14 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
 const GlobalContext = createContext();
 
 export const useGlobalContext = () => useContext(GlobalContext);
 
-const AppContext = ({ children }) => {
-  return <GlobalContext.Provider>{children}</GlobalContext.Provider>;
+export const AppContext = ({ children }) => {
+  const greeting = 'hello';
+  return (
+    <GlobalContext.Provider value={{ greeting }}>
+      {children}
+    </GlobalContext.Provider>
+  );
 };
-
-export default AppContext;

@@ -1,4 +1,4 @@
 const Gallery = () => {
-  return <div>Gallery</div>;
+  return <h2>Gallery</h2>;
 };
 export default Gallery;

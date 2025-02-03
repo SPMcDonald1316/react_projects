@@ -1,4 +1,8 @@
+import { useGlobalContext } from '../context';
+
 const ThemeToggle = () => {
-  return <div>ThemeToggle</div>;
+  const { greeting } = useGlobalContext();
+  console.log(greeting);
+  return <h2>ThemeToggle</h2>;
 };
 export default ThemeToggle;
