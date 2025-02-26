@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router';
+import { createBrowserRouter, RouterProvider } from 'react-router';
 import {
   About,
   Cocktail,
@@ -8,19 +8,33 @@ import {
   Newsletter,
 } from './pages';
 
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <HomeLayout />,
+    errorElement: <Error />,
+    children: [
+      {
+        index: true,
+        element: <Landing />,
+      },
+      {
+        path: 'cocktail',
+        element: <Cocktail />,
+      },
+      {
+        path: 'newsletter',
+        element: <Newsletter />,
+      },
+      {
+        path: 'about',
+        element: <About />,
+      },
+    ],
+  },
+]);
+
 const App = () => {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<HomeLayout />}>
-          <Route index element={<Landing />} />
-          <Route path='cocktail' element={<Cocktail />} />
-          <Route path='newsletter' element={<Newsletter />} />
-          <Route path='about' element={<About />} />
-        </Route>
-        <Route path='/error' element={<Error />} />
-      </Routes>
-    </BrowserRouter>
-  );
+  return <RouterProvider router={router} />;
 };
 export default App;
