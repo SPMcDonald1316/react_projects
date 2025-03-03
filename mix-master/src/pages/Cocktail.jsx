@@ -41,37 +41,39 @@ const Cocktail = () => {
       </header>
       <div className='drink'>
         <img src={image} alt={name} className='img' />
-        <p>
-          <span className='drink-data'>name: </span>
-          {name}
-        </p>
-        <p>
-          <span className='drink-data'>category: </span>
-          {category}
-        </p>
-        <p>
-          <span className='drink-data'>info: </span>
-          {info}
-        </p>
-        <p>
-          <span className='drink-data'>glass: </span>
-          {glass}
-        </p>
-        <p>
-          <span className='drink-data'>ingredients: </span>
-          {validIngredients.map((item, index) => {
-            return (
-              <span className='ing' key={item}>
-                {item}
-                {index < validIngredients.length - 1 ? ',' : ''}
-              </span>
-            );
-          })}
-        </p>
-        <p>
-          <span className='drink-data'>instructions: </span>
-          {instructions}
-        </p>
+        <div className='drink-info'>
+          <p>
+            <span className='drink-data'>name: </span>
+            {name}
+          </p>
+          <p>
+            <span className='drink-data'>category: </span>
+            {category}
+          </p>
+          <p>
+            <span className='drink-data'>info: </span>
+            {info}
+          </p>
+          <p>
+            <span className='drink-data'>glass: </span>
+            {glass}
+          </p>
+          <p>
+            <span className='drink-data'>ingredients: </span>
+            {validIngredients.map((item, index) => {
+              return (
+                <span className='ing' key={item}>
+                  {item}
+                  {index < validIngredients.length - 1 ? ',' : ''}
+                </span>
+              );
+            })}
+          </p>
+          <p>
+            <span className='drink-data'>instructions: </span>
+            {instructions}
+          </p>
+        </div>
       </div>
     </Wrapper>
   );
