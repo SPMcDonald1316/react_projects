@@ -1,8 +1,8 @@
-import { useLoaderData, Link } from 'react-router';
+import { useLoaderData, Link, Navigate } from 'react-router';
 import axios from 'axios';
 import Wrapper from '../assets/wrappers/CocktailPage';
 const singleCocktailUrl =
-  'https://www.thecocktaildb.com/apis/json/v1/1/lookup.php?i=';
+  'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=';
 
 export const loader = async ({ params }) => {
   const { id } = params;
@@ -12,10 +12,13 @@ export const loader = async ({ params }) => {
 
 const Cocktail = () => {
   const { id, data } = useLoaderData();
+
+  if (!data) return <Navigate to='/' />;
+
   const singleDrink = data.drinks[0];
   const {
     strDrink: name,
-    strDrinKThumb: image,
+    strDrinkThumb: image,
     strAlcoholic: info,
     strCategory: category,
     strGlass: glass,
@@ -39,23 +42,23 @@ const Cocktail = () => {
       <div className='drink'>
         <img src={image} alt={name} className='img' />
         <p>
-          <span className='drink-data'>name :</span>
+          <span className='drink-data'>name: </span>
           {name}
         </p>
         <p>
-          <span className='drink-data'>category :</span>
+          <span className='drink-data'>category: </span>
           {category}
         </p>
         <p>
-          <span className='drink-data'>info :</span>
+          <span className='drink-data'>info: </span>
           {info}
         </p>
         <p>
-          <span className='drink-data'>glass :</span>
+          <span className='drink-data'>glass: </span>
           {glass}
         </p>
         <p>
-          <span className='drink-data'>ingredients :</span>
+          <span className='drink-data'>ingredients: </span>
           {validIngredients.map((item, index) => {
             return (
               <span className='ing' key={item}>
@@ -66,8 +69,8 @@ const Cocktail = () => {
           })}
         </p>
         <p>
-          <span className='drink-data'>instructions :</span>
-          {name}
+          <span className='drink-data'>instructions: </span>
+          {instructions}
         </p>
       </div>
     </Wrapper>
