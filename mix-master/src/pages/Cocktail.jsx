@@ -4,14 +4,26 @@ import Wrapper from '../assets/wrappers/CocktailPage';
 const singleCocktailUrl =
   'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=';
 
-export const loader = async ({ params }) => {
-  const { id } = params;
-  const { data } = await axios.get(`${singleCocktailUrl}${id}`);
-  return { id, data };
+const cocktailQuery = (id) => {
+  return {
+    queryKey: ['cocktail', id],
+    queryFn: async () => {
+      const response = await axios.get(`${singleCocktailUrl}${id}`);
+      return response;
+    },
+  };
 };
 
+export const loader =
+  (queryClient) =>
+  async ({ params }) => {
+    const { id } = params;
+    const { data } = await queryClient.ensureQueryData(cocktailQuery(id));
+    return { data };
+  };
+
 const Cocktail = () => {
-  const { id, data } = useLoaderData();
+  const { data } = useLoaderData();
 
   if (!data) return <Navigate to='/' />;
 
