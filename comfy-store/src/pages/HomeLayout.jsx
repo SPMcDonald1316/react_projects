@@ -1,4 +1,13 @@
+import { Outlet } from 'react-router';
+
 const HomeLayout = () => {
-  return <div>HomeLayout</div>;
+  return (
+    <>
+      <nav>
+        <span className='text-4xl text-primary'>Comfy</span>
+      </nav>
+      <Outlet />
+    </>
+  );
 };
 export default HomeLayout;
