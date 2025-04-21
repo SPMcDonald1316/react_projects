@@ -25,10 +25,20 @@ const cartSlice = createSlice({
   reducers: {
     addItem: (state, action) => {
       const { product } = action.payload;
+
       const item = state.cartItems.find((i) => i.cartID === product.cartID);
       item ? (item.amount += product.amount) : state.cartItems.push(product);
+
       state.numItemsInCart += product.amount;
       state.cartTotal += product.price * product.amount;
+
+      cartSlice.caseReducers.caculateTotals(state);
+      toast.success('Item added to cart');
+    },
+    clearCart: (state) => {},
+    removeItem: (state, action) => {},
+    editItem: (state, action) => {},
+    caculateTotals: (state) => {
       state.tax = 0.1 * state.cartTotal;
       state.orderTotal = state.cartTotal + state.shipping + state.tax;
       localStorage.setItem(
@@ -42,11 +52,7 @@ const cartSlice = createSlice({
           orderTotal: state.orderTotal,
         })
       );
-      toast.success('Item added to cart');
     },
-    clearCart: (state) => {},
-    removeItem: (state, action) => {},
-    editItem: (state, action) => {},
   },
 });
 
