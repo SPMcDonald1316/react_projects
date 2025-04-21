@@ -10,12 +10,39 @@ const defaultState = {
   orderTotal: 0,
 };
 
+const getCartFromLocalStorage = () => {
+  try {
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    return cart ? cart : defaultState;
+  } catch (error) {
+    return defaultState;
+  }
+};
+
 const cartSlice = createSlice({
   name: 'cart',
-  initialState: defaultState,
+  initialState: getCartFromLocalStorage(),
   reducers: {
     addItem: (state, action) => {
-      console.log(action.payload);
+      const { product } = action.payload;
+      const item = state.cartItems.find((i) => i.cartID === product.cartID);
+      item ? (item.amount += product.amount) : state.cartItems.push(product);
+      state.numItemsInCart += product.amount;
+      state.cartTotal += product.price * product.amount;
+      state.tax = 0.1 * state.cartTotal;
+      state.orderTotal = state.cartTotal + state.shipping + state.tax;
+      localStorage.setItem(
+        'cart',
+        JSON.stringify({
+          cartItems: state.cartItems,
+          numItemsInCart: state.numItemsInCart,
+          cartTotal: state.cartTotal,
+          shipping: state.shipping,
+          tax: state.tax,
+          orderTotal: state.orderTotal,
+        })
+      );
+      toast.success('Item added to cart');
     },
     clearCart: (state) => {},
     removeItem: (state, action) => {},
