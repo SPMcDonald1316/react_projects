@@ -67,7 +67,7 @@ const router = createBrowserRouter([
       {
         path: '/orders',
         element: <Orders />,
-        loader: ordersLoader(store),
+        loader: ordersLoader(store, queryClient),
       },
       {
         path: '/products',
