@@ -1,11 +1,35 @@
 import { FormInput, SubmitBtn } from '../components';
-import { Form, Link } from 'react-router';
+import { Form, Link, redirect } from 'react-router';
+import { customFetch } from '../utils';
+import { loginUser } from '../features/user/userSlice';
+import { toast } from 'react-toastify';
 
 export const action =
   (store) =>
   async ({ request }) => {
-    console.log(store);
-    return store;
+    const formData = await request.formData();
+    const data = Object.fromEntries(formData);
+
+    try {
+      const response = await customFetch.post('/auth/local', data);
+
+      const user = {
+        ...response.data.user,
+        token: response.data.jwt,
+      };
+
+      store.dispatch(loginUser(user));
+      toast.success('logged in successfully');
+      return redirect('/');
+    } catch (error) {
+      console.log(error);
+      const errorMessage =
+        error?.response?.data?.error?.message ||
+        'please double check your credentials';
+
+      toast.error(errorMessage);
+      return null;
+    }
   };
 
 const Login = () => {
